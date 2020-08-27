@@ -31,8 +31,13 @@
                         '<ul>' +
                         '<li>ID: '+users[i].id+'</li>' +
                         '<li>Login: '+users[i].login+'</li>' +
+                        '<ul>' +
+                        '</div>';
                     }
+
+                    document.getElementById('users').innerHTML = output;
                 }
+            
             }
 
             xhr.send();

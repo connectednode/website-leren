@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">load github users</button>
+    <br><br>
+
+    <h1>github users</h1>
+    <div id="users"></div>
+
+    <script>
+        document.getElementById("button").addEventListener('click', loadeUsers);
+        //loade github users
+        function loadeUsers(){
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.github.com/users', true);
+
+            xhr.onload = function(){
+                if(this.status == 200){
+                    var users = JSON.parse(this.responseText);
+
+                    var output = '';
+                   // check voor resultaten
+                   if(users.length > 0) {
+                        // voor elke user als user 
+                        users.forEach((user, index) => {
+                            // output = `bla bla bla ${user.avatar_url} bla bla` // als je backticks gebruikt mag je vars gebruiken zonder buiten de quotes te breken
+                            output += `
+                                <div class="user"> 
+                                    <img src="${user.avatar_url}" with="70" height="70"> 
+                                    <ul>   
+                                        <li>ID: ${user.id}</li>
+                                        <li>Login: ${user.login}</li>
+                                    </ul>
+                                </div>`
+                        });
+                        // users.map((user) => { }) werkt ook
+                        // een for loop is net iets sneller maar dat maakt in dit geval niet zoveel uit. 
+                    } 
+                    
+                    
+
+                    document.getElementById('users').innerHTML = output;
+                }
+            
+            }
+
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
