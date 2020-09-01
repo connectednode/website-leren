@@ -8,7 +8,7 @@ var xmlhttp = new XMLHttpRequest();
       var output = '';
       for(var i in users){
           output +=
-          '<div class="test">' +
+          '<div class="user">' +
           '<img src="'+users[i].avatar_url+'" with="70" height="70">' +
           '<ul>' +
           '<li>ID: '+users[i].id+'</li>' +
@@ -16,7 +16,7 @@ var xmlhttp = new XMLHttpRequest();
           '<ul>' +
           '</div>';
       }
-      document.getElementById("test").innerHTML = output
+      document.getElementById("user").innerHTML = output
     }
   
   }  
