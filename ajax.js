@@ -20,7 +20,7 @@ var xmlhttp = new XMLHttpRequest();
     }
   
   }  
-  xmlhttp.open("GET", "https://api.github.com/", true);
+  xmlhttp.open("GET", "???", true);
   xmlhttp.send(); 
   
 console.log('test2');
