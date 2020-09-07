@@ -1,4 +1,3 @@
-var i
 var nummer1 = {
     numcurent : 0,
     numadd : "",
