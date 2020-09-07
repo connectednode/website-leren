@@ -7,7 +7,11 @@ var nummer1 = {
         return this.numcurent *= 1
     }
 };
-var nummeropslag = {};
+var nummeropslag = {
+    num1 : 0,
+    num2 : "",
+    num3 : 0 
+};
 
 console.log(nummeropslag);
 
@@ -20,7 +24,14 @@ function numToVar(x){
     console.log(nummer1)
 };
 
-function numToStorag(i=+2, x) {
-    nummeropslag. = nummer1.numcurent
-    nummeropslag. = x
+function numToStorag(y) {
+    nummeropslag.num1 = nummer1.numcurent
+    nummeropslag.num2 = y
+    nummer1.numcurent = 0
+console.log(nummeropslag)
+}
+
+function numIs() {
+    nummeropslag.num3 = nummer1.numcurent
+    console.log(nummeropslag)
 }
