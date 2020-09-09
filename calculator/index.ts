@@ -24,3 +24,4 @@ function bereken(x: number, y: string, z: number){
 bereken(3,"*",2)
 console.log(a)
 
+console.
