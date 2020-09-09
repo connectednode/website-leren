@@ -9,17 +9,18 @@ function bereken(x: number, y: string, z: number){
     }
 
     else if(y==="*"){
-    return a = x*y
+    return a = x*z
     }
 
     else if(y==="-"){
-    return a = x-y
+    return a = x-z
     }
 
     else if(y==="+"){
-    return a = x+y
+    return a = x+z
     }
-console.log(a)
-};
 
-bereken
+};
+bereken(3,"*",2)
+console.log(a)
+
