@@ -14,16 +14,16 @@ function opin(inpute: Operator, w: number){
     op[w] = inpute
 };
 
-function sorter1(){
-    let z: number
-    let x: number
-    let y: number
-    z = op.indexOf("/")
-    z = NaN
-    x = op.indexOf("*")
-    y = Math.min(z,x)
-    console.log(y)
-};
+// function sorter1(){
+    // let z: number
+    // let x: number
+    // let y: number
+    // z = op.indexOf("/")
+    // z = NaN
+    // x = op.indexOf("*")
+    // y = Math.min(z,x)
+    // console.log(y)
+// };
 
 function sorter(x: Operator){
    i =  op.indexOf(x)
