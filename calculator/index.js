@@ -9,8 +9,15 @@ function opin(inpute, w) {
     op[w] = inpute;
 }
 ;
-function sorter1(x) {
-    return op.indexOf(x);
+function sorter1() {
+    var z;
+    var x;
+    var y;
+    z = op.indexOf("/");
+    z = NaN;
+    x = op.indexOf("*");
+    y = Math.min(z, x);
+    console.log(y);
 }
 ;
 function sorter(x) {
@@ -39,6 +46,6 @@ function bereken(i) {
     }
 }
 ;
-// TODO : aray decoder
+// TODO : aray decoder/sorter Math.min(5, 10);
 // TODO : aray editor
 // TODO : inputorder
