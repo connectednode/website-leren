@@ -1,53 +1,6 @@
-var calculationGroups = [];
-var numbers = [10, 20, 30, 40, 50];
-var operators = ["**", "**", "**", "**"];
-// let i: number = 0
-// let w: number = 0
-// function numin(inpute: number, w: number){
-//     numbers[w] = inpute
-// };
-// function opin(inpute: Operator, w: number){
-//     operators[w] = inpute
-// };
-function calculate() {
-    var result = numbers[0];
-    numbers.forEach(function (number, index) {
-        if (index > 0) {
-            var prev = result;
-            var op = operators[index - 1];
-            if (op === "/") {
-                result = result / number;
-            }
-            ;
-            if (op === "*") {
-                result = result * number;
-            }
-            ;
-            if (op === "+") {
-                result = result + number;
-            }
-            ;
-            if (op === "-") {
-                result = result - number;
-            }
-            ;
-            if (op === "**") {
-                result = Math.pow(result, number);
-            }
-            ;
-            // if(op === "**"){
-            //     result = result ** number 
-            // };
-            console.log(prev + " " + op + " " + number + " = " + result + " ", number, op, result);
-        }
-        ;
-    });
-    return result;
-}
-;
-calculate();
-var calculation = "(1+1) * (2+2) + (5+5)";
+var calculation = "(1+1) * (2/2) + (3-3)";
 var tmp = calculation;
+var i = 0;
 var splits = calculation.split("(");
 var groups = [];
 var groupResults = [];
@@ -58,12 +11,20 @@ splits.forEach(function (split) {
         tmp = tmp.replace(end[0], "");
     }
 });
-tmp = tmp.replace("(", "");
-tmp = tmp.replace(")", "");
-tmp = tmp.replace("(", "");
-tmp = tmp.replace(")", "");
-tmp = tmp.replace("(", "");
-tmp = tmp.replace(")", "");
+function replace_all(what, repl, content) {
+    var str = content;
+    var n = str.search(what);
+    if (n > -1) {
+        str = str.replace(what, repl);
+        return replace_all(what, repl, str);
+    }
+    else {
+        return str;
+    }
+}
+;
+tmp = replace_all(/\(/i, "", tmp);
+tmp = replace_all(/\)/i, "", tmp);
 var ops = [];
 var o = tmp.split(" ");
 o.forEach(function (op) {
@@ -71,12 +32,40 @@ o.forEach(function (op) {
         ops.push(op);
     }
 });
-//console.log(groups, tmp, ops)
+console.log("GROUPS", groups, tmp, ops);
 groups.forEach(function (group) {
-    var r = group.split("+");
-    var num1 = parseInt(r[0]);
-    var num2 = parseInt(r[1]);
-    var calc = num1 + num2;
+    var multiply = group.search(/\*/);
+    if (multiply != -1) {
+        var r = group.split("*");
+        var num1 = parseInt(r[0]);
+        var num2 = parseInt(r[1]);
+        var calc = num1 * num2;
+    }
+    ;
+    var devide = group.search(/\//);
+    if (devide != -1) {
+        var r = group.split("/");
+        var num1 = parseInt(r[0]);
+        var num2 = parseInt(r[1]);
+        var calc = num1 / num2;
+    }
+    ;
+    var subtraction = group.search(/\-/);
+    if (subtraction != -1) {
+        var r = group.split("-");
+        var num1 = parseInt(r[0]);
+        var num2 = parseInt(r[1]);
+        var calc = num1 - num2;
+    }
+    ;
+    var adition = group.search(/\+/);
+    if (adition != -1) {
+        var r = group.split("+");
+        var num1 = parseInt(r[0]);
+        var num2 = parseInt(r[1]);
+        var calc = num1 + num2;
+    }
+    ;
     groupResults.push(calc);
 });
 console.log(calculation, ops, groups, groupResults);
@@ -104,30 +93,3 @@ groupResults.forEach(function (gr, index) {
         console.log(prev + " " + currentOperator + " " + gr + " = " + finalResult + " ");
     }
 });
-// function sorter(x: Operator){
-//    i =  operators.indexOf(x)
-// };
-// function bereken(i: number){
-//     let a = 0;
-//     if(op[i] ==="/"){
-//     return a = num[i] / num[i++]
-//     }
-//     else if(op[i]==="*"){
-//     return a = num[i]*num[i++]
-//     }
-//     else if(op[i]==="-"){
-//     return a = num[i]-num[i++]
-//     }
-//     else if(op[i]==="+"){
-//     return a = num[i]+num[i++]
-//     }
-//     else if(op[i]===""){
-//     console.log("no operator")
-//     }
-//     else{
-//     console.log("not a operator")
-//     }
-// };
-// TODO : aray decoder/sorter
-// TODO : aray editor
-// TODO : inputorder
