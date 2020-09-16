@@ -1,30 +1,32 @@
-var calculation = "(1+1) * (2/2) + (3-3)";
-var tmp = calculation;
+var tmp = "(1+1) - (2+2) + (3+3)";
 var i = 0;
-var splits = calculation.split("(");
+var splits = tmp.split("(");
+console.log(splits);
 var groups = [];
 var groupResults = [];
 splits.forEach(function (split) {
     var end = split.split(")");
     if (end[0]) {
+        console.log(end[0]);
         groups.push(end[0]);
         tmp = tmp.replace(end[0], "");
     }
 });
+console.log(tmp);
 function replace_all(what, repl, content) {
-    var str = content;
-    var n = str.search(what);
+    var n = content.search(what);
     if (n > -1) {
-        str = str.replace(what, repl);
-        return replace_all(what, repl, str);
+        content = content.replace(what, repl);
+        return replace_all(what, repl, content);
     }
     else {
-        return str;
+        return content;
     }
 }
 ;
 tmp = replace_all(/\(/i, "", tmp);
 tmp = replace_all(/\)/i, "", tmp);
+console.log(tmp);
 var ops = [];
 var o = tmp.split(" ");
 o.forEach(function (op) {
@@ -32,7 +34,7 @@ o.forEach(function (op) {
         ops.push(op);
     }
 });
-console.log("GROUPS", groups, tmp, ops);
+console.log("GROUPS", groups, "tmp", tmp, "ops", ops);
 groups.forEach(function (group) {
     var multiply = group.search(/\*/);
     if (multiply != -1) {
@@ -68,12 +70,12 @@ groups.forEach(function (group) {
     ;
     groupResults.push(calc);
 });
-console.log(calculation, ops, groups, groupResults);
+console.log(ops, groups, groupResults, "tmp", tmp);
 var finalResult = groupResults[0];
 groupResults.forEach(function (gr, index) {
     if (index > 0) {
         var prev = finalResult;
-        var currentOperator = ops[index - 1];
+        var currentOperator = tmp[index];
         if (currentOperator === "/") {
             finalResult = finalResult / gr;
         }
