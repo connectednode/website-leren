@@ -1,7 +1,6 @@
-var tmp = "(1+1) - (2+2) + (3+3)";
+var tmp = "(1+1)  -  (2+2)  + (3+3)";
 var i = 0;
 var splits = tmp.split("(");
-console.log(splits);
 var groups = [];
 var groupResults = [];
 splits.forEach(function (split) {

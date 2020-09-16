@@ -1,7 +1,6 @@
-let tmp = "(1+1) - (2+2) + (3+3)"
+let tmp = "(1+1)  -  (2+2)  + (3+3)" // TODO: add spaces to front and bake of operators
 let i = 0
 let splits = tmp.split("(")
-console.log(splits)
 let groups = []
 let groupResults = []
 
