@@ -17,7 +17,7 @@ splits.forEach(split => {
 
 console.log(tmp)
 
-function replace_all(what: any, repl: any, content: any) {//TODO: types
+function replace_all(what: any, repl: string, content: string) {
     var n = content.search(what);
     if (n > -1) {
       content = content.replace(what, repl);
@@ -28,10 +28,10 @@ function replace_all(what: any, repl: any, content: any) {//TODO: types
     }
 };
 
-  tmp = replace_all(/\(/i, "", tmp);
-  tmp = replace_all(/\)/i, "", tmp);
+tmp = replace_all(/\(/i, "", tmp);
+tmp = replace_all(/\)/i, "", tmp);
 
-  console.log(tmp)
+console.log(tmp)
 
 let ops = []
 let o = tmp.split(" ")

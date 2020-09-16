@@ -75,7 +75,7 @@ var finalResult = groupResults[0];
 groupResults.forEach(function (gr, index) {
     if (index > 0) {
         var prev = finalResult;
-        var currentOperator = tmp[index];
+        var currentOperator = ops[index - 1];
         if (currentOperator === "/") {
             finalResult = finalResult / gr;
         }
