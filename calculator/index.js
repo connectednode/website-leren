@@ -1,4 +1,5 @@
-var numbers = document.getElementById("searchTxt").value;
+var element = document.getElementById("searchTxt");
+var numbers = element.value;
 function test() {
     var tmp = numbers; // TODO: add spaces to front and bake of operators
     var i = 0;
@@ -96,3 +97,4 @@ function test() {
         }
     });
 }
+;

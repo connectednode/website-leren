@@ -1,5 +1,5 @@
-let numbers = document.getElementById("searchTxt").value
-
+let element = document.getElementById("searchTxt") as HTMLInputElement
+let numbers = element.value
 function test(){
 let tmp = numbers // TODO: add spaces to front and bake of operators
 let i = 0
@@ -108,4 +108,4 @@ groupResults.forEach((gr, index) => {
         console.log(`${prev} ${currentOperator} ${gr} = ${finalResult} `)  
     }
 });
-}
+};
