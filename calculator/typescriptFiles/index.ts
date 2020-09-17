@@ -1,4 +1,4 @@
-let tmp = "(1+1)  -  (2+2)  + (3+3)" // TODO: add spaces to front and bake of operators
+let tmp = "(1+1) - (2+2) + (3+3)" // TODO: add spaces to front and bake of operators
 let i = 0
 let splits = tmp.split("(")
 let groups = []
@@ -8,7 +8,6 @@ splits.forEach(split => {
     let end = split.split(")")
 
     if(end[0]){
-        console.log(end[0])
         groups.push(end[0])
         tmp = tmp.replace(end[0], "")
     }
