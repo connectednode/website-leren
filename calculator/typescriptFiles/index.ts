@@ -1,4 +1,7 @@
-let tmp = "(1+1) - (2+2) + (3+3)" // TODO: add spaces to front and bake of operators
+let numbers = document.getElementById("searchTxt").value
+
+function test(){
+let tmp = numbers // TODO: add spaces to front and bake of operators
 let i = 0
 let splits = tmp.split("(")
 let groups = []
@@ -105,3 +108,4 @@ groupResults.forEach((gr, index) => {
         console.log(`${prev} ${currentOperator} ${gr} = ${finalResult} `)  
     }
 });
+}
