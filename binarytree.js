@@ -183,18 +183,18 @@ const bst = new BST("+")
   
 bst.insert("-")
 bst.insert("/")
-bst.insert(2)
-bst.insert(12)
-bst.insert(28)
-bst.insert(39)
+bst.insert("*")
+bst.insert("**")
+bst.insert("=")
+
   
 console.log(bst.size())
   
 console.log(bst.min())
 console.log(bst.max())
   
-console.log(bst.contains(2))
-console.log(bst.contains(9))
+console.log(bst.contains("-"))
+console.log(bst.contains("**"))
   
 // DFS!!!
 // in-order: 2, 3, 12, 15, 28, 36, 39

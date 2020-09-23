@@ -22,4 +22,39 @@ class BT{
         this.root = new node(value)
         this.count = 1
     }
+
+    insert(value: any){
+        this.count++
+
+        let newNode = new node(value)
+        
+        const searchTree = node => {
+            // if value < node.value, go left
+            if (value < node.value) {
+              // if no left child, append new node
+              if (!node.left) {
+                node.left = newNode
+              } 
+              // if left child, look left again
+              else {
+                searchTree(node.left)
+              }
+            }
+            // if value > node.value, go right
+            else if (value > node.value) {
+              // if no right child, append new node
+              if (!node.right) {
+                node.right = newNode
+              }
+              // if right child, look right again
+              else {
+                searchTree(node.right)
+              }
+            }
+          }
+      
+          searchTree(this.root)
+    }
+
 }
+console.log(BT)
