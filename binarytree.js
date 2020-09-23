@@ -179,10 +179,10 @@ class BST {
     }
 }
   
-const bst = new BST(15)
+const bst = new BST("+")
   
-bst.insert(3)
-bst.insert(36)
+bst.insert("-")
+bst.insert("/")
 bst.insert(2)
 bst.insert(12)
 bst.insert(28)
@@ -209,3 +209,4 @@ console.log(bst.dfsPostOrder())
 // BFS!!!
 // 15, 3, 36, 2, 12, 28, 39
 console.log(bst.bfs())
+console.log(bst)
