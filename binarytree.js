@@ -188,24 +188,24 @@ bst.insert(12)
 bst.insert(28)
 bst.insert(39)
   
-bst.size()
+console.log(bst.size())
   
-bst.min()
-bst.max()
+console.log(bst.min())
+console.log(bst.max())
   
-bst.contains(2)
-bst.contains(9)
+console.log(bst.contains(2))
+console.log(bst.contains(9))
   
 // DFS!!!
 // in-order: 2, 3, 12, 15, 28, 36, 39
-bst.dfsInOrder()
+console.log(bst.dfsInOrder())
   
 // pre-order: 15, 3, 2, 12, 36, 28, 39
-bst.dfsPreOrder()
+console.log(bst.dfsPreOrder())
   
 // post-order: 2, 12, 3, 28, 39, 36, 15
-bst.dfsPostOrder()
+console.log(bst.dfsPostOrder())
   
 // BFS!!!
 // 15, 3, 36, 2, 12, 28, 39
-bst.bfs()
+console.log(bst.bfs())
