@@ -2,11 +2,13 @@
 
 // node class
 class node{
-    value: any
-    right: any
-    left: any
+   value: any         //TODO
+   right: any         //TODO
+   left: any          //TODO
+   numOrOperator: any //TODO
     constructor(value){
         this.value = value 
+        this.numOrOperator
         this.left = null
         this.right = null
     }
