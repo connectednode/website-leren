@@ -185,7 +185,6 @@ bst.insert("-")
 bst.insert("/")
 bst.insert("*")
 bst.insert("**")
-bst.insert("=")
 
   
 console.log(bst.size())
