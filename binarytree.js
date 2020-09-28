@@ -177,14 +177,29 @@ class BST {
   
       return result
     }
+
+    changeRoot(newRoot){
+        let currentRoot
+        currentRoot = bst.bfs()
+        console.log(currentRoot)
+        bst = new BST(newRoot)
+        currentRoot.forEach(test)
+  
+          
+        };
+
+}
+
+function test(value, index){
+  bst.insert(value)
 }
   
-const bst = new BST("+")
+let bst = new BST(523)
   
-bst.insert("-")
-bst.insert("/")
-bst.insert("*")
-bst.insert("**")
+bst.insert(253)
+bst.insert(255)
+bst.insert(3423)
+bst.insert(8580)
 
   
 console.log(bst.size())
@@ -209,3 +224,4 @@ console.log(bst.dfsPostOrder())
 // 15, 3, 36, 2, 12, 28, 39
 console.log(bst.bfs())
 console.log(bst)
+console.log(bst.root)
