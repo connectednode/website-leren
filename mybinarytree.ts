@@ -56,6 +56,28 @@ class BT{
          searchTree(this.root)
    }
 
+   bfs() {
+    let result = []
+    let queue = []
+
+    queue.push(this.root)
+
+    while(queue.length) {
+      let currentNode = queue.shift()
+
+      result.push(currentNode.value)
+
+      if (currentNode.left) {
+        queue.push(currentNode.left)
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right)
+      }
+    }
+
+    return result
+  }
+
    calculate(){
       let curent = this.root
        if (curent.left == null && curent.right == null){
@@ -63,9 +85,19 @@ class BT{
        }
 
    }
-  
 
-  
-
+   changeRoot(newRoot){
+    let currentRoot
+    currentRoot = bt.bfs()  //TODO: difrent serch?
+    console.log(currentRoot)
+    bt = new BT(newRoot)
+    currentRoot.forEach(test)
+   };
 }
-console.log(BT)
+
+function test(value: any){
+  bt.insert(value)
+}
+  
+let bt = new BT(3)
+console.log(bt)

@@ -3,7 +3,6 @@
 var node = /** @class */ (function () {
     function node(value) {
         this.value = value;
-        this.numOrOperator;
         this.left = null;
         this.right = null;
     }
@@ -44,12 +43,40 @@ var BT = /** @class */ (function () {
         };
         searchTree(this.root);
     };
+    BT.prototype.bfs = function () {
+        var result = [];
+        var queue = [];
+        queue.push(this.root);
+        while (queue.length) {
+            var currentNode = queue.shift();
+            result.push(currentNode.value);
+            if (currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right);
+            }
+        }
+        return result;
+    };
     BT.prototype.calculate = function () {
         var curent = this.root;
         if (curent.left == null && curent.right == null) {
             console.log(curent);
         }
     };
+    BT.prototype.changeRoot = function (newRoot) {
+        var currentRoot;
+        currentRoot = bt.bfs(); //TODO: difrent serch?
+        console.log(currentRoot);
+        bt = new BT(newRoot);
+        currentRoot.forEach(test);
+    };
+    ;
     return BT;
 }());
-console.log(BT);
+function test(value) {
+    bt.insert(value);
+}
+var bt = new BT(3);
+console.log(bt);
