@@ -12,12 +12,22 @@ class node{
    }
 
    calculate(){
-    if (typeof this.value == 'number') {
+    if (typeof this.value == "number") {
       return this.value
     }
-    else {
-      
+    else if(this.value == "*"){
+
     }
+    else if(this.value == "/"){
+
+    }
+    else if(this.value == "+"){
+
+    }
+    else if(this.value == "-"){
+
+    }
+
    }
 
 }
