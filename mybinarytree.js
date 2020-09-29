@@ -6,6 +6,11 @@ var node = /** @class */ (function () {
         this.left = null;
         this.right = null;
     }
+    node.prototype.numOrOp = function () {
+        if (typeof this.value == 'number') {
+            return this.value;
+        }
+    };
     return node;
 }());
 // tree class

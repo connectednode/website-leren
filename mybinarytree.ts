@@ -10,6 +10,16 @@ class node{
        this.left = null
        this.right = null
    }
+
+   calculate(){
+    if (typeof this.value == 'number') {
+      return this.value
+    }
+    else {
+      
+    }
+   }
+
 }
 
 
@@ -78,13 +88,6 @@ class BT{
     return result
   }
 
-   calculate(){
-      let curent = this.root
-       if (curent.left == null && curent.right == null){
-           console.log(curent)
-       }
-
-   }
 
    changeRoot(newRoot){
     let currentRoot
