@@ -2,20 +2,25 @@
 
 // node class
 class node{
-  value: any         //TODO
-  right: any         //TODO
-  left: any          //TODO
-   constructor(value){
+  value: any               //TODO
+  right: any               //TODO
+  left: any                //TODO
+  operator: any            //TODO
+  isOpertor: boolean    //TODO
+   constructor(value, operator, isOperator){
        this.value = value 
+       this.operator = operator
+       this.isOpertor = isOperator
        this.left = null
        this.right = null
    }
 
    calculate(){
-    if (typeof this.value == "number") {
+    if (this.isOpertor == false) {
       return this.value
     }
-    else if(this.value == "*"){
+    else if (this.isOpertor == true){
+    if(this.value == "*"){
 
     }
     else if(this.value == "/"){
@@ -27,6 +32,7 @@ class node{
     else if(this.value == "-"){
 
     }
+  }
 
    }
 
@@ -38,43 +44,16 @@ class node{
 class BT{
    root: node
    count: number
-   constructor(value) {
-       this.root = new node(value)
+   constructor(value, operator, isOperator) {
+       this.root = new node(value, operator, isOperator)
        this.count = 1
    }
 
-   insert(value: any){
-       this.count++
+  insert(value, operator, isOperator){
+    this.count++ //TODO: increses the conte of number of nodes
+    let newNode = new node(value, operator, isOperator)
 
-       let newNode = new node(value)
-       
-       const searchTree = node => {
-           // if value < node.value, go left
-           if (value < node.value) {
-             // if no left child, append new node
-             if (!node.left) {
-               node.left = newNode
-             } 
-             // if left child, look left again
-             else {
-               searchTree(node.left)
-             }
-           }
-           // if value > node.value, go right
-           else if (value > node.value) {
-             // if no right child, append new node
-             if (!node.right) {
-               node.right = newNode
-             }
-             // if right child, look right again
-             else {
-               searchTree(node.right)
-             }
-           }
-         }
-     
-         searchTree(this.root)
-   }
+  }
 
    bfs() {
     let result = []
@@ -99,18 +78,18 @@ class BT{
   }
 
 
-   changeRoot(newRoot){
+   changeRoot(value, operator, isOperator){
     let currentRoot
     currentRoot = bt.bfs()  //TODO: difrent serch?
     console.log(currentRoot)
-    bt = new BT(newRoot)
+    bt = new BT(value, operator, isOperator)
     currentRoot.forEach(test)
    };
 }
 
-function test(value: any){
-  bt.insert(value)
+function test(value, operator, isOperator){
+  bt.insert(value, operator, isOperator)
 }
   
-let bt = new BT(3)
+let bt = new BT(null,"+", true )
 console.log(bt)

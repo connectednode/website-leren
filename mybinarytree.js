@@ -1,27 +1,39 @@
 // binary tree
 // node class
 var node = /** @class */ (function () {
-    function node(value) {
+    function node(value, operator, isOperator) {
         this.value = value;
+        this.operator = operator;
+        this.isOpertor = isOperator;
         this.left = null;
         this.right = null;
     }
-    node.prototype.numOrOp = function () {
-        if (typeof this.value == 'number') {
+    node.prototype.calculate = function () {
+        if (this.isOpertor == false) {
             return this.value;
+        }
+        else if (this.isOpertor == true) {
+            if (this.value == "*") {
+            }
+            else if (this.value == "/") {
+            }
+            else if (this.value == "+") {
+            }
+            else if (this.value == "-") {
+            }
         }
     };
     return node;
 }());
 // tree class
 var BT = /** @class */ (function () {
-    function BT(value) {
-        this.root = new node(value);
+    function BT(value, operator, isOperator) {
+        this.root = new node(value, operator, isOperator);
         this.count = 1;
     }
-    BT.prototype.insert = function (value) {
+    BT.prototype.insert = function (value, operator, isOperator) {
         this.count++;
-        var newNode = new node(value);
+        var newNode = new node(value, operator, isOperator);
         var searchTree = function (node) {
             // if value < node.value, go left
             if (value < node.value) {
@@ -64,24 +76,18 @@ var BT = /** @class */ (function () {
         }
         return result;
     };
-    BT.prototype.calculate = function () {
-        var curent = this.root;
-        if (curent.left == null && curent.right == null) {
-            console.log(curent);
-        }
-    };
-    BT.prototype.changeRoot = function (newRoot) {
+    BT.prototype.changeRoot = function (value, operator, isOperator) {
         var currentRoot;
         currentRoot = bt.bfs(); //TODO: difrent serch?
         console.log(currentRoot);
-        bt = new BT(newRoot);
+        bt = new BT(value, operator, isOperator);
         currentRoot.forEach(test);
     };
     ;
     return BT;
 }());
-function test(value) {
-    bt.insert(value);
+function test(value, operator, isOperator) {
+    bt.insert(value, operator, isOperator);
 }
-var bt = new BT(3);
+var bt = new BT(null, "+", true);
 console.log(bt);
