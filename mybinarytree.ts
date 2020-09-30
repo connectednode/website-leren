@@ -55,32 +55,12 @@ class BT{
 
   }
 
-   bfs() {
-    let result = []
-    let queue = []
 
-    queue.push(this.root)
-
-    while(queue.length) {
-      let currentNode = queue.shift()
-
-      result.push(currentNode.value)
-
-      if (currentNode.left) {
-        queue.push(currentNode.left)
-      }
-      if (currentNode.right) {
-        queue.push(currentNode.right)
-      }
-    }
-
-    return result
-  }
 
 
    changeRoot(value, operator, isOperator){
     let currentRoot
-    currentRoot = bt.bfs()  //TODO: difrent serch?
+    // currentRoot = bt.bts()  //TODO:add difrent serch?
     console.log(currentRoot)
     bt = new BT(value, operator, isOperator)
     currentRoot.forEach(test)
