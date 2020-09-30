@@ -51,10 +51,20 @@ class BT{
        this.count = 1
    }
 
-  insert(value, operator, isOperator, index){
-    this.count++ //TODO: increses the conte of number of nodes
+  insert(value, operator, isOperator, index, nodeLeft){
+    this.count++ //TODO: increses the conte of the number of nodes
     let newNode = new node(value, operator, isOperator, index)
     
+    if(nodeLeft == true){
+
+    }
+
+    else if(nodeLeft == false){
+
+    }
+    else
+    console.log("something went wrong")
+
   }
 
 
@@ -69,8 +79,8 @@ class BT{
    };
 }
 
-function test(value, operator, isOperator, index){
-  bt.insert(value, operator, isOperator, index)
+function test(value, operator, isOperator, index, nodeLeft){
+  bt.insert(value, operator, isOperator, index, nodeLeft)
 }
   
 let bt = new BT(null, "+", true, 1)
