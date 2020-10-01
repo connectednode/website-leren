@@ -23,7 +23,7 @@ class node{
     }
     else if (this.isOpertor == true){
     if(this.value == "*"){
-
+      this.left.calculate * this.right.calculate
     }
     else if(this.value == "/"){
 
@@ -46,8 +46,8 @@ class node{
 class BT{
    root: node
    count: number
-   constructor(value, operator, isOperator, index) {
-       this.root = new node(value, operator, isOperator, index)
+   constructor(value, operator, isOperator) {
+       this.root = new node(value, operator, isOperator, 1)
        this.count = 1
    }
 
@@ -56,7 +56,7 @@ class BT{
     let newNode = new node(value, operator, isOperator, index)
     
     if(nodeLeft == true){
-
+      
     }
 
     else if(nodeLeft == false){
@@ -74,7 +74,7 @@ class BT{
     let currentRoot
     // currentRoot = bt.bts()  //TODO:add difrent serch?
     console.log(currentRoot)
-    bt = new BT(value, operator, isOperator, index)
+    bt = new BT(value, operator, isOperator)
     currentRoot.forEach(test)
    };
 }
@@ -83,5 +83,5 @@ function test(value, operator, isOperator, index, nodeLeft){
   bt.insert(value, operator, isOperator, index, nodeLeft)
 }
   
-let bt = new BT(null, "+", true, 1)
+let bt = new BT(null, "+", true)
 console.log(bt)
