@@ -194,10 +194,10 @@ function test(value, index){
   bst.insert(value)
 }
   
-let bst = new BST(523)
+let bst = new BST("+")
   
-bst.insert(253)
-bst.insert(255)
+bst.insert("-")
+bst.insert("e")
 bst.insert(3423)
 bst.insert(8580)
 
