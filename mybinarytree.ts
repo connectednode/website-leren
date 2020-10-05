@@ -9,7 +9,7 @@ class node{
   right: any               //TODO
   left: any                //TODO
   index: number            //TODO
-  operator: string
+  operator: operators
   isOperator: boolean
    constructor(value, index, operator, isOperator){
 
