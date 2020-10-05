@@ -1,4 +1,4 @@
-// binary tree
+// binary tree 
 
 // type declaraton
 type operators = "+" | "-" | "*" | "/" | null
@@ -59,7 +59,7 @@ class BT{
 
   insert(value, index, operator, isOperator, nodeLeft){
     this.count++ //TODO: increses the conte of the number of nodes
-    let newNode = new node(value, index, operator, isOperator)
+    let newNode = new node(value, this.count, operator, isOperator)
     
     let nodeIndex = "???" //TODO
 
@@ -111,8 +111,8 @@ class BT{
 function partOfChangeRoot(value, index,operator, isOperator, nodeLeft){
   bt.insert(value, index,operator, isOperator, nodeLeft)
 };
-  
-let bt = new BT(0)
+
+let bt = new BT("-")
 bt.insert (null, 2,"+", true, false)
 bt.insert (1, 3, null, false, true)
 bt.insert (2, 4, null, false, true)

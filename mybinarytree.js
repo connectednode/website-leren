@@ -1,30 +1,51 @@
-// binary tree
+// binary tree 
 // node class
 var node = /** @class */ (function () {
-    function node(value, index) {
-        if (isNaN(value)) {
-            console.log(value);
-        }
+    function node(value, index, operator, isOperator) {
         this.value = value;
         this.left = null;
         this.right = null;
         this.index = index;
+        this.operator = operator;
+        this.isOperator = isOperator;
     }
-    node.prototype.calculate = function () {
-        var test = this.value;
-        return this.value;
+    ;
+    node.prototype.calculate = function (isOperator) {
+        if (isOperator == false) {
+            console.log(this.value);
+            return this.value;
+        }
+        else if (isOperator == true) {
+            if (this.operator == "*") {
+                this.value = this.left.calculate * this.right.calculate;
+            }
+            else if (this.operator == "/") {
+                this.value = this.left.calculate / this.right.calculate;
+            }
+            else if (this.operator == "+") {
+                this.value = this.left.calculate + this.right.calculate;
+            }
+            else if (this.operator == "-") {
+                this.value = this.left.calculate - this.right.calculate;
+            }
+            ;
+        }
+        ;
     };
+    ;
     return node;
 }());
+;
 // tree class
 var BT = /** @class */ (function () {
-    function BT(value) {
-        this.root = new node(value, 1);
+    function BT(operator) {
+        this.root = new node(null, 1, operator, true);
         this.count = 1;
     }
-    BT.prototype.insert = function (value, index, nodeLeft) {
+    ;
+    BT.prototype.insert = function (value, index, operator, isOperator, nodeLeft) {
         this.count++; //TODO: increses the conte of the number of nodes
-        var newNode = new node(value, index);
+        var newNode = new node(value, index, operator, isOperator);
         var nodeIndex = "???"; //TODO
         if (nodeLeft == true) {
         }
@@ -33,6 +54,7 @@ var BT = /** @class */ (function () {
         else
             console.log("something went wrong");
     };
+    ;
     BT.prototype.bfs = function () {
         var result = [];
         var queue = [];
@@ -43,28 +65,34 @@ var BT = /** @class */ (function () {
             if (currentNode.left) {
                 queue.push(currentNode.left);
             }
+            ;
             if (currentNode.right) {
                 queue.push(currentNode.right);
             }
+            ;
         }
+        ;
         return result;
     };
-    BT.prototype.changeRoot = function (value, index) {
+    ;
+    BT.prototype.changeRoot = function (operator) {
         var currentRoot;
-        // currentRoot = bt.bts()  //TODO:add difrent serch?
+        currentRoot = bt.bfs(); //TODO:add difrent serch?
         console.log(currentRoot);
-        bt = new BT(value);
-        currentRoot.forEach(test);
+        bt = new BT(operator);
+        currentRoot.forEach(partOfChangeRoot);
     };
     ;
     return BT;
 }());
-function test(value, index, nodeLeft) {
-    bt.insert(value, index, nodeLeft);
+;
+function partOfChangeRoot(value, index, operator, isOperator, nodeLeft) {
+    bt.insert(value, index, operator, isOperator, nodeLeft);
 }
-var bt = new BT(0);
-bt.insert("+", 1, true);
-bt.insert(1, 1, true);
-bt.insert(2, 1, true);
-bt.insert(4, 1, true);
+;
+var bt = new BT("-");
+bt.insert(null, 2, "+", true, false);
+bt.insert(1, 3, null, false, true);
+bt.insert(2, 4, null, false, true);
+bt.insert(4, 5, null, false, true);
 console.log(bt);
