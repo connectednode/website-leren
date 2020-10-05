@@ -5,10 +5,10 @@ type operators = "+" | "-" | "*" | "/" | null
 
 // node class
 class node{
-  value: number          //TODO
-  right: any               //TODO
-  left: any                //TODO
-  index: number            //TODO
+  value: number
+  right: any
+  left: any
+  index: number
   operator: operators
   isOperator: boolean
    constructor(value, index, operator, isOperator){
@@ -20,7 +20,7 @@ class node{
        this.operator = operator
        this.isOperator = isOperator
 
-   }
+   };
 
    calculate(isOperator){  //TODO:make it a loop
    
@@ -41,12 +41,10 @@ class node{
     }
     else if(this.operator == "-"){
      this.value = this.left.calculate - this.right.calculate
-    }
-  }
-
-   }
-
-}
+    };
+  };
+   };
+};
 
 
 
@@ -57,7 +55,7 @@ class BT{
    constructor(operator) {
        this.root = new node(null, 1, operator,true  )
        this.count = 1
-   }
+   };
 
   insert(value, index, operator, isOperator, nodeLeft){
     this.count++ //TODO: increses the conte of the number of nodes
@@ -75,7 +73,7 @@ class BT{
     else
     console.log("something went wrong")
 
-  }
+  };
 
   bfs() {
     let result = []
@@ -90,29 +88,29 @@ class BT{
 
       if (currentNode.left) {
         queue.push(currentNode.left)
-      }
+      };
       if (currentNode.right) {
         queue.push(currentNode.right)
-      }
-    }
+      };
+    };
 
     return result
-  }
+  };
 
 
 
    changeRoot(operator){
     let currentRoot
-    // currentRoot = bt.bts()  //TODO:add difrent serch?
+    currentRoot = bt.bfs()  //TODO:add difrent serch?
     console.log(currentRoot)
     bt = new BT(operator)
-    currentRoot.forEach(test)
+    currentRoot.forEach(partOfChangeRoot)
    };
-}
+};
 
-function test(value, index,operator, isOperator, nodeLeft){
+function partOfChangeRoot(value, index,operator, isOperator, nodeLeft){
   bt.insert(value, index,operator, isOperator, nodeLeft)
-}
+};
   
 let bt = new BT(0)
 bt.insert (null, 2,"+", true, false)
