@@ -1,5 +1,8 @@
 // binary tree
 
+// type declaraton
+type operators = "+" | "-" | "*" | "/" | null
+
 // node class
 class node{
   value: number          //TODO
