@@ -63,6 +63,7 @@ var BT = /** @class */ (function () {
             else if (test.right)
                 indexserch(test.right);
         };
+        indexserch(this.root);
     };
     BT.prototype.bfs = function () {
         var result = [];
