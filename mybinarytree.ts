@@ -53,8 +53,8 @@ class BT{
    root: node
    count: number
    constructor(operator) {
-       this.root = new node(null, 1, operator,true  )
-       this.count = 1
+       this.root = new node(null, 0, operator,true  )
+       this.count = 0
    };
 
   insert(value, index, operator, isOperator, nodeLeft){
@@ -64,11 +64,11 @@ class BT{
     let nodeIndex = "???" //TODO
 
     if(nodeLeft == true){
-      
+    //  this.testLeft = newNode //TODO
     }
 
     else if(nodeLeft == false){
-
+     // this.testRight = newNode
     }
     else
     console.log("something went wrong")
