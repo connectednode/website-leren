@@ -62,25 +62,23 @@ class BT{
     let newNode = new node(value, this.count, operator, isOperator)
     
     let nodeIndex   //TODO
-    const indexserch = test =>{
-    if (inputindex == test.index) {
+     
+      function indexsearch(){
 
+        if (inputindex == this.index) {
     if(nodeLeft == true){
-      test.left = newNode //TODO
+     // .left = newNode //TODO
     }
 
     else if(nodeLeft == false){
-     test.right = newNode
+     //.right = newNode
     }
-    else
-    console.log("something went wrong")
-   }
-   else if (test.left) indexserch(test.left)
-   else if (test.right) indexserch(test.right)
-   }
-   indexserch(this.root)
-  }
+    }
+  //  else if(.right){}
 
+
+  }
+  }
 
   bfs() {
     let result = []
