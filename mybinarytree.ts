@@ -78,7 +78,7 @@ class BT{
    else if (test.left) indexserch(test.left)
    else if (test.right) indexserch(test.right)
    }
-
+   indexserch(this.root)
   }
 
 
