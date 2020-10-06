@@ -57,23 +57,30 @@ class BT{
        this.count = 0
    };
 
-  insert(value, index, operator, isOperator, nodeLeft){
+  insert(value, inputindex, operator, isOperator, nodeLeft){
     this.count++ //TODO: increses the conte of the number of nodes
     let newNode = new node(value, this.count, operator, isOperator)
     
-    let nodeIndex = "???" //TODO
+    let nodeIndex   //TODO
+    const indexserch = test =>{
+    if (inputindex == test.index) {
 
     if(nodeLeft == true){
-    //  this.testLeft = newNode //TODO
+      test.left = newNode //TODO
     }
 
     else if(nodeLeft == false){
-     // this.testRight = newNode
+     test.right = newNode
     }
     else
     console.log("something went wrong")
+   }
+   else if (test.left) indexserch(test.left)
+   else if (test.right) indexserch(test.right)
+   }
 
-  };
+  }
+
 
   bfs() {
     let result = []

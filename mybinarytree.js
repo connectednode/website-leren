@@ -39,22 +39,31 @@ var node = /** @class */ (function () {
 // tree class
 var BT = /** @class */ (function () {
     function BT(operator) {
-        this.root = new node(null, 1, operator, true);
-        this.count = 1;
+        this.root = new node(null, 0, operator, true);
+        this.count = 0;
     }
     ;
-    BT.prototype.insert = function (value, index, operator, isOperator, nodeLeft) {
+    BT.prototype.insert = function (value, inputindex, operator, isOperator, nodeLeft) {
         this.count++; //TODO: increses the conte of the number of nodes
-        var newNode = new node(value, index, operator, isOperator);
-        var nodeIndex = "???"; //TODO
-        if (nodeLeft == true) {
-        }
-        else if (nodeLeft == false) {
-        }
-        else
-            console.log("something went wrong");
+        var newNode = new node(value, this.count, operator, isOperator);
+        var nodeIndex; //TODO
+        var indexserch = function (test) {
+            if (inputindex == test.index) {
+                if (nodeLeft == true) {
+                    test.left = newNode; //TODO
+                }
+                else if (nodeLeft == false) {
+                    test.right = newNode;
+                }
+                else
+                    console.log("something went wrong");
+            }
+            else if (test.left)
+                indexserch(test.left);
+            else if (test.right)
+                indexserch(test.right);
+        };
     };
-    ;
     BT.prototype.bfs = function () {
         var result = [];
         var queue = [];
