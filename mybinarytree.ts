@@ -61,24 +61,25 @@ class BT{
     this.count++ //TODO: increses the conte of the number of nodes
     let newNode = new node(value, this.count, operator, isOperator)
     
-    let nodeIndex   //TODO
+    let nodeIndex = inputindex   //TODO
      
-      function indexsearch(){
+      function indexsearch(node){
 
-        if (inputindex == this.index) {
+        if (nodeIndex == node.index) {
     if(nodeLeft == true){
-     // .left = newNode //TODO
+      node.left = newNode 
     }
 
     else if(nodeLeft == false){
-     //.right = newNode
+     node.right = newNode
     }
     }
-  //  else if(.right){}
+     else if(node.left){indexsearch(node.left)}
+     else if(node.right){indexsearch(node.right)}
+    
 
-
-  }
-  }
+  };
+  };
 
   bfs() {
     let result = []
