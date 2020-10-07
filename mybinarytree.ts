@@ -63,7 +63,7 @@ class BT{
     
     let nodeIndex = inputindex   //TODO
      
-      function indexsearch(node){
+      function indexsearch(node){ // TODO: fix the serch algerithem it dosent surch all
 
         if (nodeIndex == node.index) {
     if(nodeLeft == true){
@@ -76,7 +76,7 @@ class BT{
     }
      else if(node.left != null){indexsearch(node.left)}
      else if(node.right != null){indexsearch(node.right)}
-     else return
+     
 
   };
 

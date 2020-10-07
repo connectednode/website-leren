@@ -62,8 +62,6 @@ var BT = /** @class */ (function () {
             else if (node.right != null) {
                 indexsearch(node.right);
             }
-            else
-                return;
         }
         ;
         indexsearch(this.root);
