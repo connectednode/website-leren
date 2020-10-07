@@ -46,25 +46,29 @@ var BT = /** @class */ (function () {
     BT.prototype.insert = function (value, inputindex, operator, isOperator, nodeLeft) {
         this.count++; //TODO: increses the conte of the number of nodes
         var newNode = new node(value, this.count, operator, isOperator);
-        var nodeIndex; //TODO
-        var indexserch = function (test) {
-            if (inputindex == test.index) {
+        var nodeIndex = inputindex; //TODO
+        function indexsearch(node) {
+            if (nodeIndex == node.index) {
                 if (nodeLeft == true) {
-                    test.left = newNode; //TODO
+                    node.left = newNode;
                 }
                 else if (nodeLeft == false) {
-                    test.right = newNode;
+                    node.right = newNode;
                 }
-                else
-                    console.log("something went wrong");
             }
-            else if (test.left)
-                indexserch(test.left);
-            else if (test.right)
-                indexserch(test.right);
-        };
-        indexserch(this.root);
+            else if (node.left != null) {
+                indexsearch(node.left);
+            }
+            else if (node.right != null) {
+                indexsearch(node.right);
+            }
+            else
+                return;
+        }
+        ;
+        indexsearch(this.root);
     };
+    ;
     BT.prototype.bfs = function () {
         var result = [];
         var queue = [];
@@ -101,8 +105,8 @@ function partOfChangeRoot(value, index, operator, isOperator, nodeLeft) {
 }
 ;
 var bt = new BT("-");
-bt.insert(null, 2, "+", true, false);
-bt.insert(1, 3, null, false, true);
-bt.insert(2, 4, null, false, true);
-bt.insert(4, 5, null, false, true);
+bt.insert(null, 0, "+", true, false);
+bt.insert(1, 1, null, false, true);
+bt.insert(2, 1, null, false, false);
+bt.insert(4, 3, null, false, true);
 console.log(bt);

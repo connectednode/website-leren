@@ -74,11 +74,13 @@ class BT{
      node.right = newNode
     }
     }
-     else if(node.left){indexsearch(node.left)}
-     else if(node.right){indexsearch(node.right)}
-    
+     else if(node.left != null){indexsearch(node.left)}
+     else if(node.right != null){indexsearch(node.right)}
+     else return
 
   };
+
+  indexsearch(this.root)
   };
 
   bfs() {
@@ -119,8 +121,8 @@ function partOfChangeRoot(value, index,operator, isOperator, nodeLeft){
 };
 
 let bt = new BT("-")
-bt.insert (null, 2,"+", true, false)
-bt.insert (1, 3, null, false, true)
-bt.insert (2, 4, null, false, true)
-bt.insert (4, 5, null, false, true)
+bt.insert (null, 0,"+", true, false)
+bt.insert (1, 1, null, false, true)
+bt.insert (2, 1, null, false, false)
+bt.insert (4, 3, null, false, true)
 console.log(bt)
