@@ -63,20 +63,25 @@ class BT{
     
     let nodeIndex = inputindex   //TODO
      
-      function indexsearch(node){ // TODO: fix the serch algerithem it dosent surch all
+      function indexsearch(test){ // TODO: fix the serch algerithem it dosent surch all
+      let queue = []
+      queue.push(test)
 
+      while (queue.length) {
+        let node = queue.shift()
         if (nodeIndex == node.index) {
     if(nodeLeft == true){
       node.left = newNode 
     }
-
     else if(nodeLeft == false){
      node.right = newNode
+    };
     }
-    }
-     else if(node.left != null){indexsearch(node.left)}
-     else if(node.right != null){indexsearch(node.right)}
+
+     else if(node.left != null){queue.push(node.left)}
+     else if(node.right != null){queue.push(node.right)}
      
+  }
 
   };
 

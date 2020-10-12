@@ -47,20 +47,26 @@ var BT = /** @class */ (function () {
         this.count++; //TODO: increses the conte of the number of nodes
         var newNode = new node(value, this.count, operator, isOperator);
         var nodeIndex = inputindex; //TODO
-        function indexsearch(node) {
-            if (nodeIndex == node.index) {
-                if (nodeLeft == true) {
-                    node.left = newNode;
+        function indexsearch(test) {
+            var queue = [];
+            queue.push(test);
+            while (queue.length) {
+                var node_1 = queue.shift();
+                if (nodeIndex == node_1.index) {
+                    if (nodeLeft == true) {
+                        node_1.left = newNode;
+                    }
+                    else if (nodeLeft == false) {
+                        node_1.right = newNode;
+                    }
+                    ;
                 }
-                else if (nodeLeft == false) {
-                    node.right = newNode;
+                else if (node_1.left != null) {
+                    queue.push(node_1.left);
                 }
-            }
-            else if (node.left != null) {
-                indexsearch(node.left);
-            }
-            else if (node.right != null) {
-                indexsearch(node.right);
+                else if (node_1.right != null) {
+                    queue.push(node_1.right);
+                }
             }
         }
         ;
