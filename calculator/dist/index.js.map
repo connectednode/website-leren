@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../index.ts"],"names":[],"mappings":";;;;;AAAA,kDAAyB;AAEzB,cAAI,EAAE,CAAC;AAGP,IAAI,IAAI,GAAG,aAAa,CAAA;AACxB,OAAO,CAAC,GAAG,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,CAAA"}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../typeschipt/index.ts"],"names":[],"mappings":";;AAAA,2CAAwC;AAExC,IAAI,GAAG,GAAG,aAAa,CAAA;AACvB,OAAO,CAAC,GAAG,CAAC,qBAAS,CAAC,GAAG,CAAC,CAAC,CAAA"}
