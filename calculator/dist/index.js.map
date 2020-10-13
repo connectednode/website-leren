@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../typeschipt/index.ts"],"names":[],"mappings":";;AAAA,2CAAwC;AAExC,IAAI,GAAG,GAAG,aAAa,CAAA;AACvB,OAAO,CAAC,GAAG,CAAC,qBAAS,CAAC,GAAG,CAAC,CAAC,CAAA"}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../typeschipt/index.ts"],"names":[],"mappings":";;AACA,IAAI,MAAM,GAAG,QAAQ,CAAC,cAAc,CAAC,QAAQ,CAAC,CAAA;AAC9C,IAAI,GAAG,GAAG,sBAAsB,CAAA;AAChC,MAAM,CAAC,SAAS,GAAG,IAAI,CAAC,GAAG,CAAC,CAAA"}

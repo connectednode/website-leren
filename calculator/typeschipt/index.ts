@@ -1,4 +1,4 @@
 import { calculate } from "./calculate";
-
-let sum = "2*(5/2+3-2)"
-console.log(calculate(sum))
+var output = document.getElementById("output")
+let sum = "2*(5/2+(3-2)/(4**9))"
+output.innerHTML = eval(sum)
