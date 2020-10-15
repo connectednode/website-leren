@@ -1,7 +1,32 @@
-// import { calculate } from "./calculate";
-//import { input  } from "./inpute";
 var output = document.getElementById("output")
-let sum = "2*(5/2+(3-2)/(4**9))"
-console.log(eval(sum))
-output.innerHTML = eval(sum)
-//let test = input()
+var inpute = document.getElementById("searchTxt")
+var error = document.getElementById("error")
+let sum: string
+
+function start(){
+    inputeToVal()
+    calculate()
+}
+
+function inputeToVal(){
+let tester = inpute.value
+
+
+ var letters = /^[A-Za-z]+$/;
+ if(tester.match(letters))
+   {
+    sum = "" 
+    error.innerHTML = "no letters"
+   }
+ else
+   {
+   sum =tester
+   }
+
+}
+
+
+function calculate(){
+    console.log(eval(sum))
+    output.innerHTML = eval(sum)
+}
