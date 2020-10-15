@@ -2,8 +2,9 @@ var output = document.getElementById("output")
 var inpute = document.getElementById("searchTxt")
 var error = document.getElementById("error")
 let sum: string
-
+document.getElementById("searchTxt").addEventListener("keyup", start())
 function start(){
+    error.innerHTML = null
     inputeToVal()
     calculate()
 }
@@ -15,7 +16,7 @@ let tester = inpute.value
  var letters = /^[A-Za-z]+$/;
  if(tester.match(letters))
    {
-    sum = "" 
+    sum = "0" 
     error.innerHTML = "no letters"
    }
  else
@@ -27,6 +28,10 @@ let tester = inpute.value
 
 
 function calculate(){
-    console.log(eval(sum))
-    output.innerHTML = eval(sum)
+    try{
+        console.log(eval(sum))
+        output.innerHTML = eval(sum)
+    }catch {
+    error.innerHTML = "syntax error"
+    }
 }
