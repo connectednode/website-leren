@@ -1,7 +1,7 @@
 var output = document.getElementById("output");
 var inpute = document.getElementById("searchTxt");
 var error = document.getElementById("error");
-let sum;
+let sum = "0";
 document.getElementById("searchTxt").addEventListener("keyup", start());
 function start() {
     error.innerHTML = null;
